@@ -6,9 +6,6 @@ import errorImg from '../../../public/error.json'
 
 const ErrorPage = () => {
     const { error, statusText, data } = useRouteError();
-    console.log(error.message, statusText , data)
-    
-    console.log(useRouteError())
     return (
         <section className='w-25 mx-auto  text-center mt-5'>
            <div>

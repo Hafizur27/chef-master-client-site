@@ -2,10 +2,12 @@
 import React from "react";
 import { Container, Nav } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
+import Banner from "../../Banner/Banner";
 
 const Header = () => {
   return (
-    <Nav className="bg-success">
+    <>
+        <Nav className="bg-success">
       <Container className="d-flex justify-content-between">
         <NavLink className={`text-decoration-none text-white py-2`} to="/">
           Chef Master
@@ -29,6 +31,8 @@ const Header = () => {
         </div>
       </Container>
     </Nav> 
+    <Banner></Banner>
+    </>
   );
 };
 

@@ -1,11 +1,14 @@
 /* eslint-disable no-unused-vars */
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import app from '../../../firebase/firebase.config';
 import { Link } from 'react-router-dom';
+import { FaGoogle, FaGithub } from 'react-icons/fa';
 
 const auth = getAuth(app);
+const googleProvider = new GoogleAuthProvider();
+const githubProvider = new GithubAuthProvider()
 
 const Login = () => {
     const [error, setError] = useState('');
@@ -25,10 +28,29 @@ const Login = () => {
             const loggedUser = result.user;
             setError('');
             event.target.reset();
-            console.log(loggedUser)
         })
         .catch(error => {
             setError(error.message)
+        })
+    }
+
+    const handelGoogleLogIn = () =>{
+        signInWithPopup(auth, googleProvider)
+        .then(result =>{
+            const loggedUser = result.user;
+        })
+        .catch(error => {
+            setError(error.message);
+        })
+    }
+
+    const handelGithubLogIn = () =>{
+        signInWithPopup(auth, githubProvider)
+        .then(result =>{
+            const loggedUser = result.user;
+        })
+        .catch(error => {
+            setError(error.message);
         })
     }
 
@@ -50,7 +72,14 @@ const Login = () => {
         <Button variant="success" type="submit">
           Log-in
         </Button>
+
+
       </Form>
+      <div>
+      <h5 className='mt-4'>Login With</h5>
+            <Button className='me-2' variant="outline-primary" onClick={handelGoogleLogIn}> <FaGoogle /> Login with Google</Button>
+            <Button variant="outline-secondary" onClick={handelGithubLogIn}> <FaGithub></FaGithub> Login with Github</Button>
+      </div>
       <p className='mt-2'><small>If you did not have an account ? please <Link to='/register' className='fs-5 text-decoration-none'>Sign-up</Link></small></p>
       <p className='text-danger mt-2'>{error}</p>
       
