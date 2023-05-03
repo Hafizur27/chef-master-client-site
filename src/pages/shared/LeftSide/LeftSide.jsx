@@ -1,10 +1,11 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 
 const LeftSide = () => {
     return (
         <div className='mt-5'>
-            <p>left side of project</p>
+            <p><Outlet></Outlet></p>
         </div>
     );
 };
