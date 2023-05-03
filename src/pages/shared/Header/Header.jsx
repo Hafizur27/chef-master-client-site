@@ -1,11 +1,13 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { FaUserTie } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
-    <Navbar collapseOnSelect expand="lg" bg="success" variant="dark">
+    <>
+        <Navbar collapseOnSelect expand="lg" bg="success" variant="dark">
       <Container>
         <Navbar.Brand href="#home">Chef-Master</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -26,6 +28,7 @@ const Header = () => {
         </Navbar.Collapse>
       </Container>
     </Navbar>
+    </>
   );
 };
 
