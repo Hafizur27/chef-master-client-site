@@ -1,15 +1,40 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import app from "../../../firebase/firebase.config";
+
+const auth = getAuth (app);
 
 const Register = () => {
+const [error, setError] = useState('')
+const [success, setSuccess] = useState('')
+
     const handelSignUp = event =>{
         event.preventDefault();
+        setSuccess('');
+        setError('');
+       
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password)
+
+        if(password.length <6){
+            setError('You Need to provide 6 characters long password ');
+            return;
+        }
+        createUserWithEmailAndPassword(auth, email, password)
+        .then(result => {
+            const createUser = result.user;
+            setError('');
+            event.target.reset();
+            setSuccess('Well come to chef master')
+        })
+        .catch(error => {
+            setError(error.message);
+            
+        })
     }
   return (
     <div className="w-50 mx-auto">
@@ -29,6 +54,8 @@ const Register = () => {
           Sign-up
         </Button>
       </Form>
+      <p className="text-danger mt-2">{error}</p>
+      <p className="text-info">{success}</p>
     </div>
   );
 };
