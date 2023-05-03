@@ -1,35 +1,37 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import { Button, Container, Nav, Navbar } from "react-bootstrap";
-import { FaUserTie } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
+import { Container, Nav } from "react-bootstrap";
+import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
-    <>
-        <Navbar collapseOnSelect expand="lg" bg="success" variant="dark">
-      <Container>
-        <Navbar.Brand href="#home">Chef-Master</Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto"></Nav>
-          <Nav className="text-dark">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#blog">Blog</Nav.Link>
-            <Nav.Link
-              eventKey={2}
-              href="#login"
-              className="d-flex align-items-center"
-            >
-              Login
-              <FaUserTie />
-            </Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
+    <Nav className="bg-success">
+      <Container className="d-flex justify-content-between">
+        <NavLink className={`text-decoration-none text-white py-2`} to="/">
+          Chef Master
+        </NavLink>
+        <div className="py-2">
+          <NavLink className={`text-decoration-none text-white`} to="/">
+            Home
+          </NavLink>
+          <NavLink
+            className={`text-decoration-none text-white mx-3`}
+            to="/blog"
+          >
+            Blog
+          </NavLink>
+          <NavLink className={`text-decoration-none text-white btn`} to="/login">
+            Log-in
+          </NavLink>
+          <NavLink className={`text-decoration-none text-white btn ms-2`} to="/register">
+            Sign-up
+          </NavLink>
+        </div>
       </Container>
-    </Navbar>
-    </>
+    </Nav> 
   );
 };
 
 export default Header;
+
+

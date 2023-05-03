@@ -5,7 +5,6 @@ import Footer from "../../pages/shared/Footer/Footer";
 import { Col, Container, Row } from "react-bootstrap";
 import LeftSide from "../../pages/shared/LeftSide/LeftSide";
 import RightSide from "../../pages/shared/RightSide/RightSide";
-import { Outlet } from "react-router-dom";
 
 const Main = () => {
   return (
