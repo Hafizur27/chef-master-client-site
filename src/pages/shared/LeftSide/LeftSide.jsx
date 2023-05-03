@@ -3,7 +3,7 @@ import React from 'react';
 
 const LeftSide = () => {
     return (
-        <div>
+        <div className='mt-5'>
             <p>left side of project</p>
         </div>
     );
