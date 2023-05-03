@@ -40,7 +40,7 @@ const Footer = () => {
         </Container>
         <Container>
           <Row>
-            <p className='h-5'><hr /></p>
+           <hr />
             <Col>
               <p className="text-center mb-0"><small>© 2023 Chef Master. All rights reserved.</small></p>
             </Col>
