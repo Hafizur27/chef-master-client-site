@@ -10,7 +10,7 @@ const Main = () => {
   return (
     <div>
       <Header></Header>
-      <Container style={{height:'100vh'}}>
+      <Container >
         <Row>
           <Col lg={8}>
             <LeftSide>
