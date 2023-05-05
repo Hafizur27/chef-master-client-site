@@ -8,48 +8,37 @@ import Blog from "../pages/Blog/Blog";
 import Details from "../pages/Detalis/Details";
 
 const router = createBrowserRouter([
-    {
-        path: '/',
-        element: <Main></Main>,
-        errorElement: <ErrorPage></ErrorPage>,
-        children:[
-            {
-                path: '/',
-                element: <Home></Home>
-            },
-            {
-                path: '/category/:id',
-                
-            },
-            {
-                path: '/login',
-                element: <Login></Login>
-            },
-            {
-                path: '/register',
-                element: <Register></Register>
-            },
-            {
-                path: '/blog',
-                element: <Blog></Blog>
-            }
-           
-        ]
-    },
-            {
-                path: '/details',
-                element: <Details></Details>,
-                children:[
-                    {
-                        path: '/details/:id',
-                        element: <Details></Details>,
-                       
-                        
-                    }
-                ]
-            }
-    
-
-])
+  {
+    path: "/",
+    element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
+      },
+      {
+        path: "/details/:id",
+        element: <Details></Details>,
+        loader: ({ params }) =>
+          fetch(
+            `https://chef-master-server-site-hafizur27.vercel.app/categories/${params.id}`
+          ),
+      },
+    ],
+  },
+]);
 
 export default router;

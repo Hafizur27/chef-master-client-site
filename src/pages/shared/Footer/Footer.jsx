@@ -8,11 +8,11 @@ const Footer = () => {
         <Container>
           <Row>
             <Col md={4}>
-              <h5>Meet our Chefs</h5>
+              <h5>Meet Top  Chefs</h5>
               <ul className="list-unstyled">
-                <li>Chef John Doe</li>
-                <li>Chef Jane Smith</li>
-                <li>Chef Michael Lee</li>
+                <li>Hiroyuki Sakai</li>
+                <li>Apirawat</li>
+                <li>Ferran Adrià</li>
               </ul>
             </Col>
             <Col md={4}>
@@ -42,7 +42,7 @@ const Footer = () => {
           <Row>
            <hr />
             <Col>
-              <p className="text-center mb-0"><small>© 2023 Chef Master. All rights reserved.</small></p>
+              <p className="text-center mb-0"><small>© 2023 Hafizur Rahman. All rights reserved.</small></p>
             </Col>
           </Row>
         </Container>

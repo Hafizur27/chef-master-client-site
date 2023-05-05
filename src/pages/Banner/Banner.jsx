@@ -34,9 +34,7 @@ const Banner = () => {
         </Row>
       </Container>
       <Container>
-        <h3 className="text-center fw-bold  text-success fs-1">
-          Our Chefs
-        </h3>
+        <h3 className="text-center fw-bold  text-success fs-1">Our Chefs</h3>
         <Row>
           <Col lg={8}>
             <LeftSide></LeftSide>

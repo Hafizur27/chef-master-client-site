@@ -6,7 +6,6 @@ import Category from '../../Category/Category';
 const LeftSide = () => {
     return (
         <div className='mt-5'>
-            {/* <Outlet></Outlet> */}
             <Category></Category>
         </div>
     );
