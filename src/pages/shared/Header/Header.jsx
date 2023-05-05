@@ -3,8 +3,18 @@ import React from "react";
 import { Container, Nav } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
 import Banner from "../../Banner/Banner";
+import { getAuth, signOut } from "firebase/auth";
 
 const Header = () => {
+  const logOut =()=>{
+    const auth = getAuth();
+signOut(auth).then(() => {
+
+}).catch((error) => {
+  console.log(error.message)
+});
+
+  }
   return (
     <>
         <Nav className="bg-success">
@@ -28,10 +38,12 @@ const Header = () => {
           <NavLink className={`text-decoration-none text-white btn ms-2`} to="/register">
             Sign-up
           </NavLink>
+          <NavLink onClick={logOut} className={`text-decoration-none text-white btn ms-2`} to="/">
+            Log-out
+          </NavLink>
         </div>
       </Container>
     </Nav> 
-    <Banner></Banner>
     </>
   );
 };

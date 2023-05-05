@@ -6,16 +6,16 @@ const RightSide = () => {
     const [categories, setCategories] = useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/categories')
+        fetch('https://chef-master-server-site-hafizur27.vercel.app/categories')
         .then(res =>res.json())
         .then(data => setCategories(data))
         .catch(error => console.log(error.message))
     },[])
     return (
-        <div className='border text-center mt-5'>
-            <h2>Master Chefs of:</h2>
+        <div className='text-center mt-5 shadow p-3'>
+            <h2 className='text-warning'>Master Chefs Available:</h2>
             {
-                categories.map(category => <h3 key={category.id}><Link to={`/category/${category.id}`} className='text-decoration-none text-dark'>{category.chef_country}</Link></h3>)
+                categories.map(category => <h3 key={category.id}>{category.chef_country}</h3>)
             }
 
         </div>

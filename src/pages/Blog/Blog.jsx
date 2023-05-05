@@ -1,12 +1,28 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
 import React from "react";
+import { Container } from "react-bootstrap";
+import Pdf from "react-to-pdf";
+
+const ref = React.createRef();
+const options = {
+    orientation: 'landscape',
+    unit: 'in',
+};
 
 const Blog = () => {
   return (
-    <div>
-      <div>
-        <h3>
+    <Container className="mt-4">
+      <Pdf targetRef={ref} filename="course.pdf" options={options} x={.3} y={.5} scale={0.8}>
+                    {({ toPdf }) => <button onClick={toPdf} type="button" className="btn btn-success my-4">Save as Pdf
+                        <span >Pdf</span>
+                    </button>}
+                </Pdf>
+
+      <div ref={ref}>
+     
+      <div >
+        <h3 className="fw-bold">
           1. What is the differences between uncontrolled and controlled
           components?
         </h3>
@@ -31,7 +47,7 @@ const Blog = () => {
         </p>
       </div>
       <div>
-        <h3>2. How to validate React props using PropTypes</h3>
+        <h3 className="fw-bold">2.How to validate React props using PropTypes ?</h3>
         <p>
           React PropTypes is a built-in library in React that allows you to
           declare the data types of the props passed to a component. You can use
@@ -54,7 +70,7 @@ const Blog = () => {
         </p>
       </div>
       <div>
-        <h3>3. What is the difference between nodejs and express js.</h3>
+        <h3 className="fw-bold">3. What is the difference between nodejs and express js.</h3>
         <p>
           Node.js and Express.js are both widely used in building web
           applications, but they are different in their approach and
@@ -91,12 +107,13 @@ const Blog = () => {
         </p>
       </div>
       <div>
-        <h3>
+        <h3 className="fw-bold">
           4. What is a custom hook, and why will you create a custom hook?
         </h3>
         <p>In React, a custom hook is a function that starts with the prefix "use" and allows you to extract common logic from React components and reuse it across multiple components. Custom hooks enable you to encapsulate and share functionality that can be used across multiple components, just like regular functions allow you to encapsulate and reuse functionality within a single component. <br /> Custom hooks can be used to abstract away complex logic or functionality that is shared across multiple components. This can help reduce code duplication and make your code more modular and reusable. Custom hooks can also help improve the readability and maintainability of your code by allowing you to separate concerns and logic into smaller, more manageable pieces. <br /> Here are some common scenarios where you might want to create a custom hook: <br />Managing component state: If you have complex state logic that needs to be reused across multiple components, you can create a custom hook to manage that state logic and reuse it across all the components that need it. <br />Fetching data: If you have API calls that are needed in multiple components, you can create a custom hook to handle the API call and reuse it across all the components that need it. <br />Animations and transitions: If you have complex animations or transitions that need to be used in multiple components, you can create a custom hook to manage the animation or transition logic and reuse it across all the components that need it. <br /> Form validation: If you have form validation logic that needs to be used in multiple components, you can create a custom hook to handle the validation logic and reuse it across all the components that need it.</p>
       </div>
-    </div>
+      </div>
+    </Container>
   );
 };
 
