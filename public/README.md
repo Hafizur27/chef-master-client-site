@@ -6,4 +6,4 @@
 * about us section show more information and about of our owner
 * this web site contain home page, blog page, log in page , register page and when we click log out we go back our home page
 * server link : https://chef-master-server-site-hafizur27.vercel.app
-* live link :
+* live link : https://chef-master-client-site.web.app
